@@ -17,3 +17,11 @@ Block mined: 000000ea61810fa85ff636440eb803263daf06b306c607aced9a1f996a421042
 
 
 takes a long time to get to block 3!
+
+ Blockchain::Blockchain() {
+ 
+	_vChain.emplace_back(Block(0, "Genesis Block"));
+  
+	_nDifficulty = 6; <-----------------------------------lower difficulty to get faster results
+  
+}
