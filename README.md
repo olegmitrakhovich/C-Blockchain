@@ -20,5 +20,7 @@ takes a long time to get to block 3!
 
  Blockchain::Blockchain() {
 	_vChain.emplace_back(Block(0, "Genesis Block"));
+	
 	_nDifficulty = 6; <-----------------------------------lower difficulty to get faster results
+	
 }
