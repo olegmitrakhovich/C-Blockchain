@@ -1,27 +1,23 @@
-# C-Blockchain
+C-Blockchain
 Proof of Work blockchain written in C++
 
-output:
-![c-blockchain-difficulty](https://user-images.githubusercontent.com/24768092/55850633-1a048e80-5b23-11e9-84ad-63daa5b3dc6c.PNG)
+expected output:
 
-The issue is here:
+Mining block 1...
 
-void Blockchain::calcDifficulty(time_t time, time_t parentTime, uint32_t parentNumber) {
+Block mined: 000000c1b50cb30fd8d9a0f2e16e38681cfcf9caead098cea726854925ab3772
 
+Mining block 2...
 
-uint32_t parentDifference = time - parentTime;
-uint32_t block_diff;
+Block mined: 0000005081063c8c854d11560cfea4fe734bde515a08565c26aa05448eea184e
 
-block_diff = parentDifference + parentDifference / 2048 * max(1 - (time - parentTime) / 10, -99) + int(pow(2,  (getLastBlock().getIndex() / 100000) - 2));
+Mining block 3...
 
-cout << "Block Time Difference: " << parentDifference << endl;
+Block mined: 000000ea61810fa85ff636440eb803263daf06b306c607aced9a1f996a421042
 
-if (parentDifference < 13) {
-		Difficulty += 1;
-}
+takes a long time to get to block 3!
 
-if (parentDifference > 18) {
-		Difficulty -= 1;
-		}
+Blockchain::Blockchain() { _vChain.emplace_back(Block(0, "Genesis Block"));
 
+_nDifficulty = 6; <-----------------------------------lower difficulty to get faster results
 }
