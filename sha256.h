@@ -1,8 +1,4 @@
-
-
-#ifndef BLOCKCHAINUSINGCPP_SHA256_H
-#define BLOCKCHAINUSINGCPP_SHA256_H
-
+#pragma once
 
 #include <string>
 
@@ -54,4 +50,4 @@ std::string sha256(std::string input);
            | ((uint32) *((str) + 1) << 16)    \
            | ((uint32) *((str) + 0) << 24);   \
 }
-#endif
+

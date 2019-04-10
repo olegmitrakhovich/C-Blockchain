@@ -1,33 +1,38 @@
-#ifndef BLOCKCHAINUSINGCPP_BLOCK_H
-#define BLOCKCHAINUSINGCPP_BLOCK_H
+#ifndef BLOCKCHAININONEFILE_BLOCK_H
+#define BLOCKCHAININONEFILE_BLOCK_H
 
-#include <cstdint>
+
 #include <iostream>
-#include <ctime>
-#include <vector>
 #include <sstream>
+#include <ctime>
 
 using namespace std;
 
 class Block {
 public:
-	string sPrevHash;
+	string prevHash;
+	Block(uint32_t blockIndex, string blockData);
+	void MineBlock(uint32_t Difficulty);
+	string CalculateHash();
 
-	Block(uint32_t nIndexIn, const string &sDataIn);
+	uint32_t getIndex();
+	uint64_t getNonce();
+	string getData();
+	string getHash();
+	time_t getTime();
 
-	string GetHash();
-
-	void MineBlock(uint32_t nDifficulty);
 
 private:
-	uint32_t _nIndex;
-	int64_t _nNonce;
-	string _sData;
-	string _sHash;
-	time_t _tTime;
+	uint32_t _Index;
+	uint64_t _Nonce;
+	string _Data;
+	string _Hash;
+	time_t _Time;
 
-	string _CalculateHash() const;
+
+
 };
+
 
 
 #endif
