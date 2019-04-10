@@ -3,24 +3,28 @@ Proof of Work blockchain written in C++
 
 expected output:
 
-Mining block 1...
-
-Block mined: 000000c1b50cb30fd8d9a0f2e16e38681cfcf9caead098cea726854925ab3772
-
-Mining block 2...
-
-Block mined: 0000005081063c8c854d11560cfea4fe734bde515a08565c26aa05448eea184e
-
-Mining block 3...
-
-Block mined: 000000ea61810fa85ff636440eb803263daf06b306c607aced9a1f996a421042
+![c-blockchain-difficulty](https://user-images.githubusercontent.com/24768092/55850633-1a048e80-5b23-11e9-84ad-63daa5b3dc6c.PNG)
 
 
-takes a long time to get to block 3!
+void Blockchain::calcDifficulty(time_t time, time_t parentTime, uint32_t parentNumber) {
+//https://dltlabs.com/how-difficulty-adjustment-algorithm-works-in-ethereum/
+//https://ethereum.stackexchange.com/questions/1880/how-is-the-mining-difficulty-calculated-on-ethereum
 
- Blockchain::Blockchain() {
-	_vChain.emplace_back(Block(0, "Genesis Block"));
-	
-	_nDifficulty = 6; <-----------------------------------lower difficulty to get faster results
-	
+
+uint32_t parentDifference = time - parentTime;
+uint32_t block_diff;
+
+//this is the issue
+//block_diff = parentDifference + parentDifference / 2048 * max(1 - (time - parentTime) / 10, -99) + int(pow(2,(getLastBlock().getIndex() / 100000) - 2));
+
+cout << "Block Time Difference: " << parentDifference << endl;
+
+if (parentDifference < 13) {
+		Difficulty += 1;
+}
+
+if (parentDifference > 18) {
+	Difficulty -= 1;
+}
+
 }
