@@ -31,3 +31,5 @@ if (parentDifference > 18) {
 //https://dltlabs.com/how-difficulty-adjustment-algorithm-works-in-ethereum/
 
 //https://ethereum.stackexchange.com/questions/1880/how-is-the-mining-difficulty-calculated-on-ethereum
+
+//Oleg

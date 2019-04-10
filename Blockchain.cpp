@@ -18,10 +18,7 @@ uint32_t Blockchain::getDifficulty() const {
 }
 
 void Blockchain::calcDifficulty(time_t time, time_t parentTime, uint32_t parentNumber) {
-	//https://dltlabs.com/how-difficulty-adjustment-algorithm-works-in-ethereum/
-	//https://ethereum.stackexchange.com/questions/1880/how-is-the-mining-difficulty-calculated-on-ethereum
-
-
+	
 	uint32_t parentDifference = time - parentTime;
 	uint32_t block_diff;
 
